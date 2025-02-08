@@ -108,7 +108,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "tpruvot"// Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "ogawan"// Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -187,7 +187,7 @@
 #ifdef U20
   #define CUSTOM_MACHINE_NAME "Alfawise U20"
 #elif defined(U30)
-  #define CUSTOM_MACHINE_NAME "Alfawise U30"
+  #define CUSTOM_MACHINE_NAME "Ogawan U30"
 #elif defined(U20_PLUS)
   #define CUSTOM_MACHINE_NAME "Alfawise U20+"
 #elif defined(LK1)
