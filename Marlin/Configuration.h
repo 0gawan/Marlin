@@ -750,10 +750,12 @@
     // Please refine the PID settings for your own machine to avoid the E1 hotend error.
     // Use the command M303 E0 S200 C8 if you make changes to your extruder.
 
+    
+  //head : m301 p14.52 i0.78 d67.83
     // Alfawise U30/U20
-    #define DEFAULT_Kp 17.22
-    #define DEFAULT_Ki 1.00
-    #define DEFAULT_Kd 74.22
+    #define DEFAULT_Kp 14.52
+    #define DEFAULT_Ki 0.78
+    #define DEFAULT_Kd 67.83
   #endif
 #else
   #define BANG_MAX 255    // Limit hotend current while in bang-bang mode; 255=full current
@@ -844,11 +846,13 @@
   //#define DEFAULT_bedKi .023
   //#define DEFAULT_bedKd 305.4
 
+  //plate : m304 p83.58 i15.56 d299.28
+
   #if ANY(U30, LK2, LK4)
     // From M303 command for Alfawise U30
-    #define DEFAULT_bedKp 338.46
-    #define DEFAULT_bedKi 63.96
-    #define DEFAULT_bedKd 447.78
+    #define DEFAULT_bedKp 83.58
+    #define DEFAULT_bedKi 15.56
+    #define DEFAULT_bedKd 299.28
 
   #elif ANY(U20, LK1)
     // From M303 command for Alfawise U20
@@ -1284,7 +1288,7 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 98 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 94.59 }
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
