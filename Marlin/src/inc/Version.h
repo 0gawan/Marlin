@@ -33,7 +33,7 @@
  * vendor name, download location, GitHub account, etc.
  */
 #ifndef DETAILED_BUILD_VERSION
-  #define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION " tpruvot@github (dev)"
+  #define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION "Ogawan U30 (BLTouch)"
 #endif
 
 /**

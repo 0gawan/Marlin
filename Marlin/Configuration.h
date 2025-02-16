@@ -1172,7 +1172,7 @@
 //#define USE_WMAX_PLUG
 
 // Enable pullup for all endstops to prevent a floating state
-//#define ENDSTOPPULLUPS
+#define ENDSTOPPULLUPS
 #if DISABLED(ENDSTOPPULLUPS)
   // Disable ENDSTOPPULLUPS to set pullups individually
   //#define ENDSTOPPULLUP_XMIN
@@ -1224,7 +1224,7 @@
 // Mechanical endstop with COM to ground and NC to Signal uses "false" here (most common setup).
 #define X_MIN_ENDSTOP_INVERTING true  // Set to true to invert the logic of the endstop.
 #define Y_MIN_ENDSTOP_INVERTING true  // Set to true to invert the logic of the endstop.
-#define Z_MIN_ENDSTOP_INVERTING true  // Set to true to invert the logic of the endstop.
+#define Z_MIN_ENDSTOP_INVERTING false  // Set to true to invert the logic of the endstop.
 #define I_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define J_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
 #define K_MIN_ENDSTOP_INVERTING false // Set to true to invert the logic of the endstop.
@@ -1426,7 +1426,7 @@
  * Use G29 repeatedly, adjusting the Z height at each point with movement commands
  * or (with LCD_BED_LEVELING) the LCD controller.
  */
-#define PROBE_MANUALLY
+//#define PROBE_MANUALLY
 
 /**
  * A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
@@ -1451,7 +1451,15 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-//#define BLTOUCH
+#define BLTOUCH
+// #if ENABLED(BLTOUCH)
+//   #define BLTOUCH_V3 // On the general control board, // is not required to be removed.
+//     #if ENABLED(BLTOUCH)
+//     #define BLTOUCH_FORCE_5V_MODE only for 5V l ogic . Do not remove // on 3.3 V logic system
+//     #define BLTOUCH_FORCE_OPEN_DRAIN_MODE default : Logic V oltage Free Both 3.3 V / 5 V logic are available
+//     #endif
+// #endif
+
 
 /**
  * MagLev V4 probe by MDD
@@ -1604,7 +1612,34 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+//#define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { -25.4 , -30.3, -1 }
+
+//– MK8 = X-25,4 Y-30,3
+
+
+
+/*
+*      +-- BACK ---+
+*      |           |
+*    L |    (+) P  | R <-- probe (20,20)
+*    E |           | I
+*    F | (-) N (+) | G <-- nozzle (10,10)
+*    T |           | H
+*      |    (-)    | T
+*      |           |
+*      O-- FRONT --+
+*    (0,0)
+
+#define X_PROBE_OFFSET_FROM_EXTRUDER -29  // X offset: -left  +right  [of the nozzle]
+#define Y_PROBE_OFFSET_FROM_EXTRUDER -22  // Y offset: -front +behind [the nozzle]
+#define Z_PROBE_OFFSET_FROM_EXTRUDER 4   // Z offset: -below +above  [the nozzle]
+*/
+
+
+
+
+
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -2006,9 +2041,9 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-//#define AUTO_BED_LEVELING_BILINEAR
+#define AUTO_BED_LEVELING_BILINEAR
 //#define AUTO_BED_LEVELING_UBL
-#define MESH_BED_LEVELING
+//#define MESH_BED_LEVELING
 
 /**
  * Commands to execute at the end of G29 probing.
@@ -2051,7 +2086,7 @@
 
 #if ANY(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL, PROBE_MANUALLY)
   // Set a height for the start of manual adjustment
-  #define MANUAL_PROBE_START_Z 0.2  // (mm) Comment out to use the last-measured height
+//  #define MANUAL_PROBE_START_Z 0.2  // (mm) Comment out to use the last-measured height
 #endif
 
 #if ANY(MESH_BED_LEVELING, AUTO_BED_LEVELING_BILINEAR, AUTO_BED_LEVELING_UBL)
@@ -2223,7 +2258,7 @@
  * - Allows Z homing only when XY positions are known and trusted.
  * - If stepper drivers sleep, XY homing may be required again before Z homing.
  */
-//#define Z_SAFE_HOMING
+#define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT X_CENTER  // (mm) X point for Z homing
