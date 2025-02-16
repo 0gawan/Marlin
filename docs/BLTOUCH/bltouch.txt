@@ -1,0 +1,33 @@
+
+Aliexpress :
+
+Paramètres du produit 
+Tension 5V 
+Courant 15ma 
+Courant maximum (de crête) 300mA 
+Matériau de coque PC 
+Couleur de coque blanc translucide 
+Longueur de la ligne Ligne courte: 200mm Ligne longue: 1000mm 
+3 broches: vert (-, GND) 
+Rouge (+ 5V) 
+Orange (ligne de signal) 
+2 broches: noir (-, GND) 
+Blanc: (Zmin)
+
+----------------
+FANG MODULABLE
+Offsets BLTouch
+Voici les offsets X et Y à renseigner dans vos fichiers de configuration :
+– MK8 = X-25,4 Y-30,3
+
+White Wire : Zmin probe  : PE6
+Orange Wire : Servo : PE5
+
+Marlin/src/pins/stm32f1/pins_LONGER3D_LK.h
+  //#define SERVO0_PIN                        PD13  // Open drain PWM pin on the V0G (GND or floating 5V)
+  //#define SERVO0_PWM_OD                           // Comment this if using PE5
+
+  #define SERVO0_PIN                      PE5   // Pulled up PWM pin on the V08 (3.3V or 0)
+  //#undef Z_MAX_PIN                              // Uncomment if using ZMAX connector (PE5)
+
+---------------
