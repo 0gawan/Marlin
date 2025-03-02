@@ -18,8 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
-#Keep Output Firmware
-!.pio\build\alfawise_U30\project.bin
+
 
 # Generated files
 _Version.h
@@ -103,7 +102,7 @@ applet/
 *.su
 
 # PlatformIO files/dirs
-.pio*
+#.pio*
 .pioenvs
 .piolibdeps
 .clang_complete
@@ -141,8 +140,9 @@ CMakeLists.txt
 !buildroot/share/cmake/CMakeLists.txt
 src/CMakeLists.txt
 CMakeListsPrivate.txt
-build/
-
+#build/
+#!build/alfawise_U30/
+#!build/alfawise_U30/project.bin
 # CLion
 cmake-build-*
 
